@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '../views/layouts/MainLayout.vue'
 import AuthLayout from '../views/layouts/AuthLayout.vue'
+import Welcome from '../views/welcome/Index.vue'
 import AuthAPI from '@/api/AuthAPI'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'home',
+    //   component: Welcome
+    // },
     {
       path: '/',
       name: 'home',
@@ -26,7 +32,7 @@ const router = createRouter({
         },
 
         {
-          path: '',
+          path: 'dashboard',
           name: 'dashboard',
           component: () => import('../views/Dashboard.vue')
         },
