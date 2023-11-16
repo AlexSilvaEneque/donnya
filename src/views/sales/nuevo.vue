@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import { ref, onMounted, reactive, type Ref, computed } from 'vue';
+    import { useRouter } from 'vue-router'
     import type { IClient } from '../../interfaces/index';
     import type { IProduct } from '../../interfaces/index';
     import type { ICartSale } from '../../interfaces/index';
@@ -12,6 +13,7 @@
     import useSale from '@/composables/sale';
     import type { ISale } from '../../interfaces/index';
 
+    const router = useRouter()
     const cartStore = useCartStore()
 
     const clientComp = useClient()
@@ -66,6 +68,11 @@
         qtyRes.value = 0
     }
 
+    const cancelSale = () => {
+        router.push({ name: 'index-sale' })
+        cartStore.$reset()
+    }
+
     onMounted(async () => {
         clients.value = await clientComp.allClient()
         clients.value = clients.value.map((client) => {
@@ -80,9 +87,9 @@
 </script>
 
 <template>
-    <div class="w-full custom-2 bg-white border-round shadow-1 px-5 mt-3 pb-3 md:pb-0">
+    <div class="w-full custom-2 bg-white border-round shadow-1 px-3 mt-3 pb-3 md:pb-0">
         <div class="md:flex mb-5 justify-content-between pt-2">
-            <h1 class="text-2xl md:text-3xl text-800">Registro de venta</h1>
+            <h1 class="text-xl text-800">Registro de venta</h1>
             <IBreadcrumb
                 :home="home"
                 :items="items"
@@ -226,17 +233,28 @@
                             </template>
                         </Column>
                     </DataTable>
-                <div class="w-full flex justify-content-between align-items-center px-1 mt-2">
+                <div class="w-full flex justify-content-between align-items-center px-1 mt-2 text-base">
                     <h4>Total a pagar:</h4>
-                    <span class="text-lg font-medium">{{ formatCurrency(cartStore.totalSale) }}</span>
+                    <span class="text-base font-medium">{{ formatCurrency(cartStore.totalSale) }}</span>
                 </div>
               </div>
-              <Button
-                  label="Guardar"
-                  icon="pi pi-save"
-                  type="submit"
-                  class="block mt-2"
-              />
+              <div class="w-full flex justify-content-between align-items-center mt-2">
+                    <Button
+                        label="Guardar"
+                        icon="pi pi-save"
+                        type="submit"
+                        class="block mt-2"
+                        size="small"
+                    />
+                    <Button
+                        label="Cancelar"
+                        type="button"
+                        class="block mt-2"
+                        severity="secondary"
+                        size="small"
+                        @click="cancelSale"
+                    />
+              </div>
             </FormKit>
 
         </div>

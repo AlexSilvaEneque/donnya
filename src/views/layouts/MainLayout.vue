@@ -128,6 +128,9 @@
         width: 290px;
         margin: auto;
     }
+    .width-detail-table1 {
+        width: 290px;
+    }
 }
 
 @media (min-width: 370px) {

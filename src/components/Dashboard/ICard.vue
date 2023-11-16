@@ -4,7 +4,7 @@
             <h3 class="text-600">
                 <slot name="title" />
             </h3>
-            <span class="h-2rem w-2rem bg-primary flex align-items-center justify-content-center text-xl border-circle opacity-70">
+            <span class="h-2rem w-2rem bg-primary flex align-items-center justify-content-center text-lg border-circle opacity-70">
                 <slot name="icon"/>
             </span>
         </div>

@@ -23,7 +23,7 @@
                     <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">                    
                         <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
                             <div class="flex flex-column align-items-center sm:align-items-start gap-1">
-                                <div class="text-lg font-bold">
+                                <div class="text-base font-bold">
                                     Del {{ convertoDDMMYYYY(slotProps.data.initial_date) }} hasta {{ convertoDDMMYYYY(slotProps.data.finish_date) }}
                                 </div>
                                 <div class="flex align-items-center">

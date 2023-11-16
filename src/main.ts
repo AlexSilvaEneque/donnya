@@ -26,6 +26,7 @@ import TabPanel from 'primevue/tabpanel'
 import DataView from 'primevue/dataview'
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
 import SpeedDial from 'primevue/speeddial'
+import Chart from 'primevue/chart'
 
 import { useToast } from 'vue-toast-notification'
 
@@ -77,4 +78,5 @@ app.component("TabPanel", TabPanel)
 app.component("DataView", DataView)
 app.component("DataViewLayoutOptions", DataViewLayoutOptions)
 app.component("SpeedDial", SpeedDial)
+app.component("Chart", Chart)
 app.mount('#app')

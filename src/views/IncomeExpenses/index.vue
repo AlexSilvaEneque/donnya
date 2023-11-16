@@ -55,7 +55,7 @@
 
 <template>
     <div class="w-full custom-2 bg-white border-round shadow-1 px-1 md:px-5 mt-3">
-        <h1 class="text-xl md:text-2xl text-800 pt-2">Gastos e Ingresos</h1>
+        <h1 class="text-xl text-800 pt-2">Gastos e Ingresos</h1>
         <div class="card">
             <TabView>
                 <TabPanel header="Registrados">
@@ -63,9 +63,9 @@
                 </TabPanel>
                 <TabPanel header="Registrar">
                     <div class="sm:flex w-full">
-                        <h3 class="text-800 mb-1 mt-2 mr-2">Fechas</h3>
+                        <h3 class="text-800 mb-1 mt-2 mr-2 text-base">Fechas</h3>
                         <div class="p-inputgroup w-full sm:w-6 md:w-7 lg:w-5 xl:w-4">
-                            <Calendar v-model="dates" selection-mode="range" :manual-input="false" date-format="dd/mm/yy" />
+                            <Calendar v-model="dates" size="small" selection-mode="range" :manual-input="false" date-format="dd/mm/yy" />
                             <Button
                                 icon="pi pi-filter"
                                 severity="secondary"
@@ -76,28 +76,28 @@
                     <div class="grid mt-3 gap-2 lg:gap-0">
                         <div class="col-12 lg:col-6 p-3 lg:px-6">
                             <div class="flex justify-content-between">
-                                <span class="font-semibold text-lg">Cantidad de ventas:</span>
-                                <span class="font-bold text-xl">{{ store.incomeExpenses?.countsale ? store.incomeExpenses?.countsale : 0 }}</span>
+                                <span class="font-semibold text-base">Cantidad de ventas:</span>
+                                <span class="font-bold text-lg">{{ store.incomeExpenses?.countsale ? store.incomeExpenses?.countsale : 0 }}</span>
                             </div>
                             <div class="flex justify-content-between">
-                                <span class="font-semibold text-lg">Ingreso por ventas:</span>
-                                <span class="font-bold text-xl">{{ formatCurrency(Number(store.totalSales)) }}</span>
+                                <span class="font-semibold text-base">Ingreso por ventas:</span>
+                                <span class="font-bold text-lg">{{ formatCurrency(Number(store.totalSales)) }}</span>
                             </div>
                         </div>
                         <div class="col-12 lg:col-6 p-3 lg:px-6">
                             <div class="flex justify-content-between">
-                                <span class="font-semibold text-lg">Cantidad de compras:</span>
-                                <span class="font-bold text-xl">{{ store.incomeExpenses?.countpurchases ? store.incomeExpenses?.countpurchases : 0 }}</span>
+                                <span class="font-semibold text-base">Cantidad de compras:</span>
+                                <span class="font-bold text-lg">{{ store.incomeExpenses?.countpurchases ? store.incomeExpenses?.countpurchases : 0 }}</span>
                             </div>
                             <div class="flex justify-content-between">
-                                <span class="font-semibold text-lg">Gasto por compras:</span>
-                                <span class="font-bold text-xl">{{ formatCurrency(Number(store.totalPurchase)) }}</span>
+                                <span class="font-semibold text-base">Gasto por compras:</span>
+                                <span class="font-bold text-lg">{{ formatCurrency(Number(store.totalPurchase)) }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="lg:flex lg:justify-content-between lg:px-5 text-center mt-2">
-                        <div>
-                            <span class="font-semibold text-xl mr-3">Utilidad:</span>
+                        <div class="mb-2">
+                            <span class="font-semibold text-lg mr-3">Utilidad:</span>
                             <span class="font-bold text-lg">{{ formatCurrency(store.utilidad) }}</span>
                         </div>
                         <Button
@@ -106,6 +106,7 @@
                             :disabled="disabled"
                             :loading="loading"
                             @click="handlerSubmit"
+                            size="small"
                         />
                     </div>
                 </TabPanel>
